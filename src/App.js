@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Canvas, Circle, Rect} from "fabric";
+import {Canvas, Circle, Rect, Polygon} from "fabric";
 import {IconButton} from "blocksin-system";
-import {CircleIcon, ImageIcon, SquareIcon } from "sebikostudio-icons";
+import {CircleIcon, ImageIcon, SquareIcon, StarIcon } from "sebikostudio-icons";
 
 import Settings from "./Settings";
 import { handleMovingObject, clearGuides } from "./SnappingHelper";
@@ -36,7 +36,7 @@ function CanvasApp() {
         initCanvas.dispose();
       }
     }
-  }, []);
+  },[]);
 
   const addRectangle=()=>{
     if(canvas){
@@ -64,25 +64,47 @@ function CanvasApp() {
   const addImage=(e)=>{
 
     if(canvas){
-      let img = e.target.files[0];
-      let reader = new FileReader();
-      reader.readAsDataURL(img);
-      reader.onload=()=>{
-        let imgUrl =reader.result;
-        let imgElement = document.createElement('img');
-        imgElement.src = imgUrl;
-        imgElement.onload=function(){
-          let image = new Image(imgElement);
-          canvas.add(image);
-          canvas.centerObject(image);
-          canvas.setActiveObject(image);
 
-        }
-      }
-      canvas.add(img); 
     }
      
+     
     
+  }
+  function createStarPoints(centerX, centerY, spikes, outerRadius, innerRadius) {
+    const points = [];
+    const step = Math.PI / spikes;
+
+    for (let i = 0; i < 2 * spikes; i++) {
+        const radius = i % 2 === 0 ? outerRadius : innerRadius;
+        const angle = i * step;
+        points.push({
+            x: centerX + Math.cos(angle) * radius,
+            y: centerY + Math.sin(angle) * radius,
+        });
+    }
+
+    return points;
+  }
+  //points to create star
+  const centerX = 250;
+  const centerY = 250;
+  const spikes = 5;
+  const outerRadius = 100;
+  const innerRadius = 50;
+  
+  const starPoints = createStarPoints(centerX, centerY, spikes, outerRadius, innerRadius);
+  const addStar =()=>{
+    if(canvas){
+      const star = new Polygon( starPoints, {
+        top: 120,
+        width:200,
+        fill: "gold",
+        strokeWidth:2,
+        originX:'center',
+        originY:'center'
+      });
+      canvas.add(star);
+    }
   }
   const changeBackground=()=>{
      var canvas = new Canvas('c');
@@ -113,6 +135,9 @@ function CanvasApp() {
             ref={canvasRef}
             style={{ display: 'none' }}
             onChange={addImage}/>
+        </IconButton>
+        <IconButton onClick={addStar} variant="ghost" size="medium">
+          <StarIcon/>
         </IconButton>
       </div>
       <canvas id="canvas" ref={canvasRef}></canvas>
