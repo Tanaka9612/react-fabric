@@ -2,8 +2,10 @@ import React, {useEffect, useRef, useState} from "react";
 import {Canvas, Circle, Rect, Polygon} from "fabric";
 import {IconButton} from "blocksin-system";
 import {CircleIcon, ImageIcon, SquareIcon, StarIcon } from "sebikostudio-icons";
+import Navbar from './Navbar';
 
 import Settings from "./Settings";
+// import DrawingCanvas from "./DrawingMode";
 import { handleMovingObject, clearGuides } from "./SnappingHelper";
 
 
@@ -120,6 +122,7 @@ function CanvasApp() {
 
   return (
     <div className="App">
+      <Navbar/>
       <div className="Toolbar darkmode">
         {/* <p>Add a shape below</p> */}
         <IconButton onClick={addRectangle} variant="ghost" size="medium">
@@ -139,6 +142,10 @@ function CanvasApp() {
         <IconButton onClick={addStar} variant="ghost" size="medium">
           <StarIcon/>
         </IconButton>
+      </div>
+      <div>
+        {/* <DrawingCanvas/> */}
+        <h1>Drawing tools go here</h1>
       </div>
       <canvas id="canvas" ref={canvasRef}></canvas>
       <Settings canvas={canvas}/>
