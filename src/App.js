@@ -2,14 +2,14 @@ import React, {useEffect, useRef, useState} from "react";
 import {Canvas, Circle, Rect, Polygon} from "fabric";
 import {IconButton} from "blocksin-system";
 import {CircleIcon, ImageIcon, SquareIcon, StarIcon } from "sebikostudio-icons";
-import Navbar from './Navbar';
+import Navbar from './Componets/Navbar';
 
-import Settings from "./Settings";
+import Settings from "./Componets/Settings";
 // import DrawingCanvas from "./DrawingMode";
-import { handleMovingObject, clearGuides } from "./SnappingHelper";
+import { handleMovingObject, clearGuides } from "./Componets/SnappingHelper";
 
 
-import './styles.scss';
+import './CSS/styles.scss';
 
 function CanvasApp() {
   const canvasRef = useRef(null);
