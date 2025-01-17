@@ -1,15 +1,11 @@
 import React from "react";
 import '../CSS/faqs.css';
 class FAQs extends React.Component{
-    constructor(props){
-        super(props)
-    }
-
     render(){
         return(
             <div className="faqs">
                 {/* SHould get questions from an API */}
-                <h2>This is the Frequently asked questions</h2>
+                <h2>Frequently asked questions</h2>
                 <p>Nostrud occaecat dolor nisi voluptate aute Lorem non tempor eu deserunt dolor.</p>
                 <p>Aliqua sunt quis elit officia proident eiusmod laborum ipsum nostrud esse ullamco non anim aliqua.</p>
                 <p>Est velit ad culpa ex.</p>

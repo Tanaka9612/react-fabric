@@ -6,6 +6,8 @@ import { Navigate } from "react-router-dom";
 import './CSS/About.css';
 import FAQs from "./Componets/FAQs";
 import Footer from "./Componets/Footer";
+import Login from "./Componets/Login";
+import Register from "./Componets/Register";
 
 function MainPage() {
     return (
@@ -68,6 +70,8 @@ function Home() {
                 <Route path="/app" element={<App />} />
                 <Route path="*" element={<Navigate to="/" />}/>
                 <Route path="/faqs" element={<FAQs/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/register" element={<Register/>}/>
             </Routes>
             <Footer/>
         </div>

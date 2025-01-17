@@ -13,6 +13,8 @@ class Navbar extends React.Component{
                     <li><Link to={"/other"}>Projects</Link></li>
                     <li><Link to={"/team"}>Team</Link></li>
                     <li><Link to={"/app"}>Create Your Card</Link></li>
+                    <li id="login"><Link to={"/login"}>Login</Link></li>
+                    <li id="register"><Link to={"/register"}>Register</Link></li>
                     
                 </ul>
             </div>

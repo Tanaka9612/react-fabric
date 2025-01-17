@@ -4,14 +4,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    margin-top: 120px;
 }
 
 p{
     align-content: center;
     text-align: center;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
 }
 
 h2{

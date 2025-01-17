@@ -1,0 +1,14 @@
+.register{
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.register{
+    
+}
+body{
+    background-color: black;
+}
